@@ -41,11 +41,11 @@ void ajouterFilsDroit(sommet s, objet o){
     }
 }
 void supprimerFilsGauche(sommet s){
-    s = NULL;
+    s->gauche = NULL;
 }
 
 void supprimerFilsDroit(sommet s){
-    s = NULL;
+    s->droit = NULL;
 }
 
 void detruireSommet(sommet s){
