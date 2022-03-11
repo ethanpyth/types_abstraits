@@ -35,3 +35,53 @@ void permuter(TasMin *t, int s1, int s2){
     t->arbre[s1] = t->arbre[s2];
     t->arbre[s2] = a;
 }
+
+void detruireTas(TasMin *t){
+    t->taille = 0;
+    t->arbre[RACINE];
+}
+
+void supprimer(TasMin *t){
+    t->taille--;
+    t->arbre[RACINE] = t->arbre[t->s];
+    t->s--;
+    reorganiserDesc(t, RACINE)
+}
+
+void reorganiserDesc(TasMin *t, int s){
+    char fg = filsG(t, s);
+    char fd = filsD(t, s);
+    char v = getValeur(t, s);
+    if(fg != VIDE && fd != VIDE && fg < fd && fg < v){
+        permuter(t, s, s * 2);
+        reorganiserDesc(t, s * 2);
+    }else if(fd < v){
+        permuter(t, s, s * 2 + 1);
+        reorganiserDesc(t, s * 2 + 1);
+    }
+    // if(t->arbre[s] > filsG(t, s)){
+    //     permuter(t, s, s * 2);
+    //     reorganiserDesc(t, s * 2);
+    // }else if(t->arbre[s] > filsD(t, s)){
+    //     permuter(t, s, s * 2 + 1);
+    //     reorganiserDesc(t, s);
+    // }
+}
+
+char getValeur(TasMin *t, int s){
+    return t->arbre[s];
+}
+
+char filsD(TasMin *t, int s){
+    if(s * 2 + 1 != t->taille)
+        return t->arbre[s * 2 + 1];
+    else
+        return '-';
+}
+
+char filsG(TasMin *t, int s){
+    if(s * 2 != t->taille)
+        return t->arbre[RACINE * 2 + 1];
+    else
+        return t->arbre[RACINE * 2];
+}

@@ -3,7 +3,16 @@
 void main(){
     TasMin t;
 
-    creerTas(&t, 'e');
-    printf("%c\n", t.arbre[t.s]);
-    printf("taille : %d \n", t.taille);
+    creerTas(&t, 'd');
+    entasser(&t, 'c');
+    entasser(&t, 'b');
+    entasser(&t, 'a');
+    entasser(&t, 'g');
+    printf("valeur : %c\n", valeur(&t));
+    printf("fils gauche : %c\n", filsG(&t, RACINE));
+    printf("fils droit : %c\n", filsD(&t, RACINE));
+    
+
+    printf("valeur : %c\n", valeur(&t));
+    supprimer(&t);
 }
