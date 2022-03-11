@@ -4,13 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Sommet Sommet;
-
-typedef struct Sommet *sommet;
+typedef struct sommet *sommet;
 typedef sommet arbreBinaire;
 typedef char objet;
 
-struct Sommet
+struct sommet
 {
   objet info;
   sommet gauche, droit, pere;
