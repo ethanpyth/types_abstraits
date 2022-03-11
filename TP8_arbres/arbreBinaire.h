@@ -29,7 +29,7 @@ void supprimerFilsDroit(sommet s);
 
 //nouvelles primitives 
 void setFilsGauche(sommet s, sommet fg);
-void setFilsDroit(sommet s, sommet fg);
+void setFilsDroit(sommet s, sommet fd);
 void setPere(sommet s, sommet p);
 
 

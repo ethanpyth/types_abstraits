@@ -41,24 +41,15 @@ void ajouterFilsDroit(sommet s, objet o){
     }
 }
 void supprimerFilsGauche(sommet s){
-    s/*->gauche*/ = NULL;
-    // s->gauche->info = NULL;
-    // s->gauche->pere = NULL;
-    // s->gauche->droit = NULL;
+    s = NULL;
 }
 
 void supprimerFilsDroit(sommet s){
-    s/*->droit*/ = NULL;
-    // s->droit->info = NULL;
-    // s->droit->pere = NULL;
-    // s->droit->gauche = NULL;
+    s = NULL;
 }
 
 void detruireSommet(sommet s){
-    // s->droit = NULL;
-    // s->gauche = NULL;
-    // s->info = NULL;
-    s/*->pere*/ = NULL;
+    s = NULL;
 }
 
 void* getValeur(sommet s){
@@ -71,4 +62,19 @@ void setValeur(sommet s, objet o){
 
 sommet pere(sommet S){
     return S->pere;
+}
+
+void setFilsGauche(sommet s, sommet fg){
+    s->gauche = fg;
+    s->gauche->info = fg->info;
+}
+
+void setFilsDroit(sommet s, sommet fd){
+    s->droit = fd;
+    s->droit->info = fd->info;
+}
+
+void setPere(sommet s, sommet p){
+    s->pere = p;
+    s->pere->info = p->info;
 }
