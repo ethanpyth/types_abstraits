@@ -45,7 +45,7 @@ void supprimer(TasMin *t){
     t->taille--;
     t->arbre[RACINE] = t->arbre[t->s];
     t->s--;
-    reorganiserDesc(t, RACINE)
+    reorganiserDesc(t, RACINE);
 }
 
 void reorganiserDesc(TasMin *t, int s){
